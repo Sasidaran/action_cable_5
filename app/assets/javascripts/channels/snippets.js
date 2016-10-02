@@ -1,5 +1,8 @@
 
 App.snippets = App.cable.subscriptions.create('SnippetsChannel', {  
+	connected: function() {
+		console.log('Hello');
+	},
   received: function(data) {
     return $('#snippets').append(this.renderSnippet(data));
   },
