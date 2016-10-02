@@ -29,7 +29,7 @@ class SnippetsController < ApplicationController
     @snippet.lab = Lab.find(params[:snippet][:lab])
 
     respond_to do |format|
-      if @snippet.save
+      if @snippet.save        
         format.html { redirect_to @snippet, notice: 'Snippet was successfully created.' }
         format.json { render :show, status: :created, location: @snippet }
       else
