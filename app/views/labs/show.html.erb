@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @lab.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @lab.description %>
+</p>
+
+
+<div id="snippets">
+
+</div>
+
+Add your snippet!
+
+<%=form_for @snippet, :remote=> true do |f|%>  
+  <%=f.label :content%>
+  <%=f.text_area :content %>
+  <%=f.hidden_field :lab, value: @lab.id%>
+  <%=f.submit "create"%>
+<%end%>
+
+<%= link_to 'Edit', edit_lab_path(@lab) %> |
+<%= link_to 'Back', labs_path %>
